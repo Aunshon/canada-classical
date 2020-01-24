@@ -62,7 +62,7 @@
             </div>
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="#">
-                    <img src="{{asset("frontEnd/images/logo.png")}}" alt="">
+                    <img src="{{asset("uploads/logo")}}/{{$photo}}" alt="">
                     <h1>global education</h1>
                     <p>canada</p>
                 </a>
