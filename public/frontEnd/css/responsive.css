@@ -1,0 +1,112 @@
+@media(max-width:575px){
+    #banner-part{
+        border-bottom-left-radius:0;
+    }
+
+    #header-top .icon{
+        margin-top: 15px;
+    }
+
+    nav .navbar-brand{
+        width: 70%;
+    }
+
+    nav ul li a{
+        margin-top: 15px;
+    }
+
+    nav .button{
+        margin-top: 15px;
+    }
+
+    #experience-part .exitem{
+        margin-top: 20px;
+    }
+
+    #experience-part{
+        height: auto;
+    }
+
+    #world-part{
+        margin-top: 50px;
+    }
+
+    #world-part .world-item{
+        margin-top: 20px;
+    }
+
+    iframe{
+        margin-top: 20px;
+    }
+
+    #form .interest{
+        text-align: center;
+    }
+
+    #form .interest p{
+        display: block;
+    }
+
+    #form .interest label{
+        margin-left: 0;
+        display: block;
+    }
+}
+
+
+@media(min-width:576px) and (max-width:767px){
+    #header-top .language span{
+        margin-left: 11px;
+    }
+
+    #header-top .icon a{
+        margin-left: 0;
+    }
+
+    #experience-part{
+        height: auto;
+    }
+
+    #world-part{
+        margin-top: 50px;
+    }
+
+    #form .interest{
+        text-align: center;
+    }
+
+    #form .interest p{
+        display: block;
+    }
+
+    #form .interest label{
+        margin-left: 0;
+        display: block;
+    }
+}
+
+@media(min-width:768px) and (max-width:991px){
+    #header-top .language span{
+        margin-left: 11px;
+    }
+
+    #header-top .icon a{
+        margin-left: 0;
+    }
+
+    #experience-part{
+        height: auto;
+    }
+
+    #world-part{
+        margin-top: 50px;
+    }
+
+    
+}
+
+@media(min-width:992px) and (max-width:1199px){
+    #form .interest label{
+        margin-left: 25px;
+    }
+}
