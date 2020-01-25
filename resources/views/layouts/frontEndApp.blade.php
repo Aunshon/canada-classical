@@ -73,27 +73,7 @@
                                     <h5 class="text-overflow"><small>Welcome ! {{ Auth::user()->name }} </small> </h5>
                                 </div>
 
-                                <!-- item-->
-                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="zmdi zmdi-account-circle"></i> <span>Profile</span>
-                                </a>
 
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="zmdi zmdi-settings"></i> <span>Settings</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item" onclick="ala();">
-                                    <i class="zmdi zmdi-lock-open"></i> <span>Lock Screen</span> --}}
-                                    {{-- <button type="button" class="" id="sa-warning">Click me</button> --}}
-
-                                {{-- </a> --}}
-
-                                <!-- item-->
-                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="zmdi zmdi-power"></i> <span>Logout</span>
-                                </a> --}}
                                 <a class="dropdown-item notify-item" href="{{ route('logout') }}"
                                     onclick="
 
@@ -148,8 +128,9 @@
                                 <a ><i class="fi-help"></i><span> Theme Settings </span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="{{route('logosettings')}}">Logo</a></li>
-                                    <li><a href=" Demo ">Products</a></li>
-                                    <li><a href=" Demo ">Stock Manager</a></li>
+                                    <li><a href=" {{route('socialLinks')}} ">Social Links</a></li>
+                                    <li><a href=" {{route('bannerVideo')}} ">Banner Youtube Video</a></li>
+                                    <li><a href=" {{route('aboutSection')}} ">About Section</a></li>
                                 </ul>
                             </li>
 

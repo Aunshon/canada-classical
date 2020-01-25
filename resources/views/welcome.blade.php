@@ -1,125 +1,8 @@
-            {{-- @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif --}}
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Global Education Canada</title>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset("frontEnd/css/bootstrap.min.css")}}">
-    <link rel="stylesheet" href="{{asset("frontEnd/css/slick.css")}}">
-    <link rel="stylesheet" href="{{asset("frontEnd/css/style.css")}}">
-    <link rel="stylesheet" href="{{asset("frontEnd/css/responsive.css")}}">
-</head>
-
-<body>
+@extends('layouts.siteApp')
 
 
+@section('content')
 
-
-    <!-- ===================================
-                    header-top start
-    ======================================== -->
-
-    <section id="header-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-sm-6">
-                    <div class="language">
-                        <span>English</span>
-                        <span>FRENCE</span>
-                        <span>mandarin</span>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="icon">
-                        <a class="contact" href="#">Contact Us</a>
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-
-                    </div>
-
-                </div>
-            </div>
-            <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="#">
-                    <img src="{{asset("uploads/logo")}}/{{$photo}}" alt="">
-                    <h1>global education</h1>
-                    <p>canada</p>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i style="color:#fff" class="fa fa-bars" aria-hidden="true"></i>
-
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">about <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">experience canada</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">experience world</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">partner with us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">faq</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">contact</a>
-                        </li>
-                    </ul>
-                    <div class="button">
-                        <a class="apply" href="#">apply now</a>
-                        <a class="login" href="#">log in</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </section>
-
-    <!-- ===================================
-                header-top end
-======================================== -->
-
-
-
-    <!-- ===================================
-                    banner start
-======================================== -->
-
-    <section id="banner-part">
-      <div id="ytbg" data-youtube="https://www.youtube.com/watch?v=_-StQsHSTz0"></div>
-    </section>
-
-    <!-- ===================================
-                    banner end
-======================================== -->
 
     <!-- ===================================
                 about start
@@ -127,23 +10,18 @@
 
     <section id="about-part">
         <div class="container">
+            @foreach ($allAbout as $item)
             <div class="row">
+
                 <div class="col-lg-6">
-                    <img src="{{asset("frontEnd/images/about.png")}}" alt="about">
+                    <img src="{{asset("uploads/about")}}/{{$item->photo}}" alt="about">
                 </div>
                 <div class="col-lg-6">
-                    <h1>about</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum voluptatem, deserunt, iste cumque,
-                        mollitia sint id fugiat at necessitatibus itaque perferendis quas labore. Fugit consequatur
-                        libero laboriosam iure, perferendis consectetur culpa dolore exercitationem doloremque eaque
-                        aspernatur ab unde officia? Unde laborum at magnam quo. Iste, itaque rem! Cumque ut eligendi
-                        nisi quisquam accusamus. Dignissimos soluta molestias, voluptatem totam repudiandae possimus
-                        illum blanditiis error ex, cumque, maxime officia numquam? Sequi doloremque voluptatem veniam.
-                        Veritatis ipsum voluptatum ullam aliquid voluptatibus alias, ex deleniti tempora, nulla illum
-                        corrupti, dolore nostrum! Repellat voluptatibus tenetur accusamus et facilis unde cum facere!
-                        Necessitatibus optio pariatur vel?</p>
+                    <h1>{{$item->titie}}</h1>
+                    <p>{{$item->dis}}</p>
                 </div>
             </div>
+            @endforeach
         </div>
     </section>
 
@@ -850,28 +728,4 @@
                 form part end
 ======================================== -->
 
-<!-- ===================================
-                footer start
-======================================== -->
-
-  <section id="footer">
-    <p>Privacy Notice-Terms & Conditions &copy; GLOBAL EDUCATION CANADA 2020.ALL RIGHTS RESERVED</p>
-  </section>
-
-<!-- ===================================
-                footer end
-======================================== -->
-
-
-
-
-    <script src="{{asset("frontEnd/js/jquery-3.4.1.slim.min.js")}}"></script>
-    <script src="{{asset("frontEnd/js/popper.min.js")}}"></script>
-    <script src="{{asset("frontEnd/js/bootstrap.min.js")}}"></script>
-    <script src="{{asset("frontEnd/js/bootstrap.min.js")}}"></script>
-    <script src="{{asset("frontEnd/js/slick.min.js")}}"></script>
-    <script src="{{asset("frontEnd/js/jquery.youtube-background.js")}}"></script>
-    <script src="{{asset("frontEnd/js/script.js")}}"></script>
-</body>
-
-</html>
+@endsection
