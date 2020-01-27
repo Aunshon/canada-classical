@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\AboutSection;
 use App\BannerVideo;
+use App\Contact;
 use App\ExperienceCanada;
 use App\ExperienceTheWorld;
+use App\Faq;
 use App\Logo;
 use App\Partner;
 use App\Social;
+use App\SubFaq;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -163,13 +166,13 @@ class DashboardController extends Controller
     function saveexperienceCanada(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'titie' => 'required',
             'photo' => 'required',
             'dis' => 'required',
         ]);
 
         $lastId = ExperienceCanada::insertGetId([
-            'title' => $request->title,
+            'titie' => $request->titie,
             'photo' => 'default.jpg',
             'dis' => $request->dis,
             // 'created_at' => Carbon::now(),
@@ -179,7 +182,7 @@ class DashboardController extends Controller
         if ($request->hasFile('photo')) {
             $photo = $request->photo;
             $photoName = $lastId . '.' . $photo->getClientOriginalExtension();
-            Image::make($photo)->resize(255, 254)->save(base_path("public/uploads/ExperienceCanada/" . $photoName), 100);
+            Image::make($photo)->resize(255, 254)->save(base_path("public/uploads/canada/" . $photoName), 100);
             ExperienceCanada::findOrFail($lastId)->update([
                 'photo' => $photoName,
             ]);
@@ -191,7 +194,7 @@ class DashboardController extends Controller
     {
         $photo = ExperienceCanada::findOrFail($id)->photo;
         // echo $photo;
-        unlink(base_path("public/uploads/ExperienceCanada/" . $photo));
+        unlink(base_path("public/uploads/canada/" . $photo));
         ExperienceCanada::findOrFail($id)->delete();
         return back()->with('greenStatus', 'Deleted');
     }
@@ -209,13 +212,13 @@ class DashboardController extends Controller
     function saveexperienceworld(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'titie' => 'required',
             'photo' => 'required',
             'dis' => 'required',
         ]);
 
         $lastId = ExperienceTheWorld::insertGetId([
-            'title' => $request->title,
+            'titie' => $request->titie,
             'photo' => 'default.jpg',
             'dis' => $request->dis,
             'created_at' => Carbon::now(),
@@ -225,7 +228,7 @@ class DashboardController extends Controller
         if ($request->hasFile('photo')) {
             $photo = $request->photo;
             $photoName = $lastId . '.' . $photo->getClientOriginalExtension();
-            Image::make($photo)->resize(255, 254)->save(base_path("public/uploads/ExperienceTheWorld/" . $photoName), 100);
+            Image::make($photo)->resize(255, 254)->save(base_path("public/uploads/world/" . $photoName), 100);
             ExperienceTheWorld::findOrFail($lastId)->update([
                 'photo' => $photoName,
             ]);
@@ -237,7 +240,7 @@ class DashboardController extends Controller
     {
         $photo = ExperienceTheWorld::findOrFail($id)->photo;
         // echo $photo;
-        unlink(base_path("public/uploads/ExperienceTheWorld/" . $photo));
+        unlink(base_path("public/uploads/world/" . $photo));
         ExperienceTheWorld::findOrFail($id)->delete();
         return back()->with('greenStatus', 'Deleted');
     }
@@ -248,19 +251,19 @@ class DashboardController extends Controller
 
     function partner()
     {
-        $experienceworld = Partner::all();
+        $Partner = Partner::all();
         return view('dashboard.partner', compact('Partner'));
     }
     function savepartner(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'titie' => 'required',
             'photo' => 'required',
             'dis' => 'required',
         ]);
 
         $lastId = Partner::insertGetId([
-            'title' => $request->title,
+            'titie' => $request->titie,
             'photo' => 'default.jpg',
             'dis' => $request->dis,
             'created_at' => Carbon::now(),
@@ -286,6 +289,100 @@ class DashboardController extends Controller
         Partner::findOrFail($id)->delete();
         return back()->with('greenStatus', 'Deleted');
     }
+
+
+
+
+    function faq()
+    {
+        $Faq = Faq::all();
+        $SubFaq = SubFaq::all();
+        return view('dashboard.faq', compact('Faq', 'SubFaq'));
+    }
+    function saveFaq(Request $request)
+    {
+        $request->validate([
+            'faq' => 'required',
+        ]);
+
+        $lastId = Faq::insertGetId([
+            'title' => $request->faq,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        return back()->with('greenStatus', 'Added');
+    }
+    function saveSubFaq(Request $request)
+    {
+        $request->validate([
+            'faq' => 'required',
+            'subTitle' => 'required',
+            'dis' => 'required',
+        ]);
+
+        $lastId = SubFaq::insertGetId([
+            'faq' => $request->faq,
+            'subTitle' => $request->subTitle,
+            'dis' => $request->dis,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        return back()->with('greenStatus', 'Added');
+
+    }
+    function deleteFaq($id)
+    {
+        Faq::findOrFail($id)->delete();
+        $all = SubFaq::where('faq',$id)->get();
+        foreach ($all as $item) {
+            $item->delete();
+        }
+        return back()->with('greenStatus', 'Deleted');
+    }
+    function deleteSubFaq($id)
+    {
+        SubFaq::findOrFail($id)->delete();
+        // $all = SubFaq::where('faq',$id)->get();
+        // foreach ($all as $item) {
+        //     $item->delete();
+        // }
+        return back()->with('greenStatus', 'Deleted');
+    }
+
+
+
+
+    function contact()
+    {
+        $Contact = Contact::all();
+        return view('dashboard.contact', compact('Contact'));
+    }
+    function saveContact(Request $request)
+    {
+
+        $request->validate([
+            'title' => 'required',
+            'numOne' => 'required',
+            'numTwo' => 'required',
+            'email' => 'required',
+            'mapLocaiton' => 'required'
+        ]);
+        $Contact = Contact::all();
+        foreach ($Contact as $item) {
+            $item->delete();
+        }
+        $lastId = Contact::insertGetId([
+            'title' => $request->title,
+            'numOne' => $request->numOne,
+            'numTwo' => $request->numTwo,
+            'email' => $request->email,
+            'mapLocaiton' => $request->mapLocaiton,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        return back()->with('greenStatus', 'Added');
+    }
+
 
     //.. End Here
 }

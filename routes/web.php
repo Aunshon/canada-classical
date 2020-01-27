@@ -7,6 +7,9 @@ use App\AboutSection;
 use App\ExperienceCanada;
 use App\ExperienceTheWorld;
 use App\Partner;
+use App\Faq;
+use App\SubFaq;
+use App\Contact;
 Route::get('/', function () {
     $photo = Logo::where('status',1)->first('photo');
     if (!$photo) {
@@ -22,8 +25,11 @@ Route::get('/', function () {
     $ExperienceCanada = ExperienceCanada::all();
     $ExperienceTheWorld = ExperienceTheWorld::all();
     $Partner = Partner::all();
+    $Faq = Faq::all();
+    $SubFaq = SubFaq::all();
+    $Contact = Contact::all();
     // echo $photo;
-    return view('welcome',compact('photo', 'allSocial', 'allBaner', 'allAbout', 'ExperienceCanada', 'ExperienceTheWorld','Partner'));
+    return view('welcome',compact('photo', 'allSocial', 'allBaner', 'allAbout', 'ExperienceCanada', 'ExperienceTheWorld','Partner','Faq','SubFaq', 'Contact'));
 });
 
 Auth::routes();
@@ -62,3 +68,16 @@ Route::get('/deleteexperienceworld/{id}', 'DashboardController@deleteexperiencew
 Route::get('/partner', 'DashboardController@partner')->name('partner');
 Route::post('/savepartner', 'DashboardController@savepartner')->name('savepartner');
 Route::get('/deletepartner/{id}', 'DashboardController@deletepartner')->name('deletepartner');
+
+Route::get('/faq', 'DashboardController@faq')->name('faq');
+Route::post('/saveFaq', 'DashboardController@saveFaq')->name('saveFaq');
+Route::post('/saveSubFaq', 'DashboardController@saveSubFaq')->name('saveSubFaq');
+
+Route::get('/deleteFaq/{id}', 'DashboardController@deleteFaq')->name('deleteFaq');
+Route::get('/deleteSubFaq/{id}', 'DashboardController@deleteSubFaq')->name('deleteSubFaq');
+
+Route::get('/contact', 'DashboardController@contact')->name('contact');
+Route::post('/saveContact', 'DashboardController@saveContact')->name('saveContact');
+
+Route::get('/contactForm', 'DashboardController@contactForm')->name('contactForm');
+Route::post('/saveContactForm', 'DashboardController@saveContactForm')->name('saveContactForm');

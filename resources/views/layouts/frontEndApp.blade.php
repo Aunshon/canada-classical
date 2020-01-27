@@ -131,6 +131,11 @@
                                     <li><a href=" {{route('socialLinks')}} ">Social Links</a></li>
                                     <li><a href=" {{route('bannerVideo')}} ">Banner Youtube Video</a></li>
                                     <li><a href=" {{route('aboutSection')}} ">About Section</a></li>
+                                    <li><a href=" {{route('experienceCanada')}} ">experienceCanada</a></li>
+                                    <li><a href=" {{route('experienceworld')}} ">experienceworld</a></li>
+                                    <li><a href=" {{route('partner')}} ">partner</a></li>
+                                    <li><a href=" {{route('faq')}} ">FAQ</a></li>
+                                    <li><a href=" {{route('contact')}} ">Contact</a></li>
                                 </ul>
                             </li>
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExperienceTheWorldsTable extends Migration
+class CreateSubFaqsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateExperienceTheWorldsTable extends Migration
      */
     public function up()
     {
-        Schema::create('experience_the_worlds', function (Blueprint $table) {
+        Schema::create('sub_faqs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titie');
-            $table->string('photo');
+            $table->integer('faq');
+            $table->string('subTitle');
             $table->longText('dis');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateExperienceTheWorldsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('experience_the_worlds');
+        Schema::dropIfExists('sub_faqs');
     }
 }
