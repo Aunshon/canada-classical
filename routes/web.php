@@ -4,6 +4,9 @@ use App\Logo;
 use App\Social;
 use App\BannerVideo;
 use App\AboutSection;
+use App\ExperienceCanada;
+use App\ExperienceTheWorld;
+use App\Partner;
 Route::get('/', function () {
     $photo = Logo::where('status',1)->first('photo');
     if (!$photo) {
@@ -16,8 +19,11 @@ Route::get('/', function () {
     $allSocial = Social::all();
     $allBaner = BannerVideo::all();
     $allAbout = AboutSection::all();
+    $ExperienceCanada = ExperienceCanada::all();
+    $ExperienceTheWorld = ExperienceTheWorld::all();
+    $Partner = Partner::all();
     // echo $photo;
-    return view('welcome',compact('photo', 'allSocial', 'allBaner', 'allAbout'));
+    return view('welcome',compact('photo', 'allSocial', 'allBaner', 'allAbout', 'ExperienceCanada', 'ExperienceTheWorld','Partner'));
 });
 
 Auth::routes();
@@ -44,3 +50,15 @@ Route::get('/deletebannerVideo/{id}', 'DashboardController@deletebannerVideo')->
 Route::get('/aboutSection', 'DashboardController@aboutSection')->name('aboutSection');
 Route::post('/saveaboutSection', 'DashboardController@saveaboutSection')->name('saveaboutSection');
 Route::get('/deleteaboutSection/{id}', 'DashboardController@deleteaboutSection')->name('deleteaboutSection');
+
+Route::get('/experienceCanada', 'DashboardController@experienceCanada')->name('experienceCanada');
+Route::post('/saveexperienceCanada', 'DashboardController@saveexperienceCanada')->name('saveexperienceCanada');
+Route::get('/deleteexperienceCanada/{id}', 'DashboardController@deleteexperienceCanada')->name('deleteexperienceCanada');
+
+Route::get('/experienceworld', 'DashboardController@experienceworld')->name('experienceworld');
+Route::post('/saveexperienceworld', 'DashboardController@saveexperienceworld')->name('saveexperienceworld');
+Route::get('/deleteexperienceworld/{id}', 'DashboardController@deleteexperienceworld')->name('deleteexperienceworld');
+
+Route::get('/partner', 'DashboardController@partner')->name('partner');
+Route::post('/savepartner', 'DashboardController@savepartner')->name('savepartner');
+Route::get('/deletepartner/{id}', 'DashboardController@deletepartner')->name('deletepartner');

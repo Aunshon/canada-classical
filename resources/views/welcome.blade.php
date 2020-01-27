@@ -39,49 +39,19 @@
         </div>
         <div class="container">
             <div class="row">
+                @foreach ($ExperienceCanada as $item)
                 <div class="col-lg-3 col-sm-6">
                     <div class="exitem">
                         <div class="img">
-                            <img src="{{asset("frontEnd/images/ex1.png")}}" alt="ex1">
+                            <a href="{{url('ExperienceCanada/Details')}}/{{$item->id}}"><img src="{{asset('uploads/ExperienceCanada')}}/{{$item->photo}}" alt="ex1"></a>
                         </div>
                         <div class="text">
-                            <h2><a href="#">study</a></h2>
+                            <h2><a href="{{url('ExperienceCanada/Details')}}/{{$item->id}}">{{$item->title}}</a></h2>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="exitem">
-                        <div class="img">
-                            <img src="{{asset("frontEnd/images/ex2.png")}}" alt="ex1">
-                        </div>
-                        <div class="text">
-                            <h2><a href="#">international experience</a></h2>
-                        </div>
-                    </div>
+                @endforeach
 
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="exitem">
-                        <div class="img">
-                            <img src="{{asset("frontEnd/images/ex3.png")}}" alt="ex1">
-                        </div>
-                        <div class="text">
-                            <h2><a href="#">strong community</a></h2>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="exitem">
-                        <div class="img">
-                            <img src="{{asset("frontEnd/images/ex4.png")}}" alt="ex1">
-                        </div>
-                        <div class="text">
-                            <h2><a href="#">academics</a></h2>
-                        </div>
-                    </div>
-
-                </div>
             </div>
     </section>
 
@@ -100,46 +70,18 @@
 
     <div class="container">
         <div class="row">
+            @foreach ($ExperienceTheWorld as $item)
             <div class="col-lg-3 col-sm-6 mt-sm-3">
                 <div class="world-item">
-                    <img src="{{asset("frontEnd/images/ex1.png")}}" alt="ex1">
+                    <a href="{{url('ExperienceCanada/Details')}}/{{$item->id}}"><img src="{{asset('uploads/ExperienceTheWorld')}}/{{$item->photo}}" alt="ex1"></a>
                     <div class="overlay">
                         <div class="text">
-                            <p>study</p>
+                            <p>{{$item->title}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6 mt-sm-3">
-                <div class="world-item">
-                    <img src="{{asset("frontEnd/images/ex2.png")}}" alt="ex1">
-                    <div class="overlay">
-                        <div class="text">
-                            <p>international experirence</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mt-sm-3">
-                <div class="world-item">
-                    <img src="{{asset("frontEnd/images/ex3.png")}}" alt="ex1">
-                    <div class="overlay">
-                        <div class="text">
-                            <p>stronger community</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mt-sm-3">
-                <div class="world-item">
-                    <img src="{{asset("frontEnd/images/ex4.png")}}" alt="ex1">
-                    <div class="overlay">
-                        <div class="text">
-                            <p>academics</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -161,26 +103,12 @@
 
         <div class="container">
             <div class="responsive">
+                @foreach ($Partner as $item)
                 <div class="img">
-                    <img src="{{asset("frontEnd/images/partner1.png")}}" alt="partner1">
+                    <a href="{{url('Partner/Details')}}/{{$item->id}}"><img src="{{asset('uploads/partner')}}/{{$item->photo}}" alt="partner1"></a>
                     <h3>private sectior</h3>
                 </div>
-                <div class="img">
-                    <img src="{{asset("frontEnd/images/partner1.png")}}" alt="partner1">
-                    <h3>private sectior</h3>
-                </div>
-                <div class="img">
-                    <img src="{{asset("frontEnd/images/partner1.png")}}" alt="partner1">
-                    <h3>private sectior</h3>
-                </div>
-                <div class="img">
-                    <img src="{{asset("frontEnd/images/partner1.png")}}" alt="partner1">
-                    <h3>private sectior</h3>
-                </div>
-                <div class="img">
-                    <img src="{{asset("frontEnd/images/partner1.png")}}" alt="partner1">
-                    <h3>private sectior</h3>
-                </div>
+                @endforeach
             </div>
             </div>
 
