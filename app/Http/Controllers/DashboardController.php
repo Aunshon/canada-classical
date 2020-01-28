@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AboutSection;
 use App\BannerVideo;
 use App\Contact;
+use App\ContactForm;
 use App\ExperienceCanada;
 use App\ExperienceTheWorld;
 use App\Faq;
@@ -382,6 +383,47 @@ class DashboardController extends Controller
         ]);
         return back()->with('greenStatus', 'Added');
     }
+
+
+
+    function contactForm()
+    {
+        $ContactForm = ContactForm::all();
+        return view('dashboard.ContactForm', compact('ContactForm'));
+    }
+
+
+    function saveContactForm(Request $request)
+    {
+        $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'ind' => 'required',
+            'email' => 'required',
+            'cemail' => 'required|same:email',
+            'tele' => 'required',
+            'menu' => 'required',
+            'msg' => 'required'
+        ]);
+
+        ContactForm::insert([
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'ind' => $request->ind,
+            'email' => $request->email,
+            'cemail' => $request->cemail,
+            'tele' => $request->tele,
+            'menu' => $request->menu,
+            'msg' => $request->msg
+        ]);
+        return back()->with('greenStatus', 'Added');
+    }
+    function deletecontactForm($id)
+    {
+        ContactForm::findOrFail($id)->delete();
+        return back()->with('greenStatus', 'Deleted');
+    }
+
 
 
     //.. End Here

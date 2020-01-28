@@ -217,7 +217,8 @@
 <section id="form">
   <div class="overlay">
 
-    <form>
+    <form method="POST" action="{{route('saveContactForm')}}">
+        @csrf
       <div class="container">
         <div class="title">
           <h1>contact form</h1>
@@ -244,16 +245,16 @@
           <div class="col-lg-12">
             <div class="interest">
               <p>(menu):interest</p>
-              <input type="radio" id="one" name="menu">
-              <label for="one">about</label>
-              <input type="radio" id="two" name="menu">
-              <label for="two">experienc in canada</label>
-              <input type="radio" id="three" name="menu">
-              <label for="three">experienc the world</label>
-              <input type="radio" id="four" name="menu">
-              <label for="four">partner with us</label>
-              <input type="radio" id="five" name="menu">
-              <label for="five">other category</label>
+              <input type="radio" id="one" name="menu" value="About">
+              <label for="one">About</label>
+              <input type="radio" id="two" name="menu" value="Experience in canada">
+              <label for="two">Experience in canada</label>
+              <input type="radio" id="three" name="menu" value="Experience the world">
+              <label for="three">Experience the world</label>
+              <input type="radio" id="four" name="menu" value="Partner with us">
+              <label for="four">Partner with us</label>
+              <input type="radio" id="five" name="menu" value="Other category">
+              <label for="five">Other category</label>
             </div>
           </div>
           <div class="col-lg-12">

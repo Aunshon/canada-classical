@@ -10,6 +10,7 @@ return array(
     'App\\BannerVideo' => $baseDir . '/app/BannerVideo.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Contact' => $baseDir . '/app/Contact.php',
+    'App\\ContactForm' => $baseDir . '/app/ContactForm.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\ExperienceCanada' => $baseDir . '/app/ExperienceCanada.php',
     'App\\ExperienceTheWorld' => $baseDir . '/app/ExperienceTheWorld.php',

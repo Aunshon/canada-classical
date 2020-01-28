@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{asset("frontEnd/css/slick.css")}}">
     <link rel="stylesheet" href="{{asset("frontEnd/css/style.css")}}">
     <link rel="stylesheet" href="{{asset("frontEnd/css/responsive.css")}}">
+    <link href="{{ asset('assets/tost/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
     @yield('css')
 </head>
 
@@ -159,6 +162,33 @@
     <script src="{{asset("frontEnd/js/slick.min.js")}}"></script>
     <script src="{{asset("frontEnd/js/jquery.youtube-background.js")}}"></script>
     <script src="{{asset("frontEnd/js/script.js")}}"></script>
+    <script src="{{ asset('assets/tost/toastr.min.js') }}"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+            <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+            <script>
+                @if(Session::has('greenStatus'))
+                            toastr.success("{{ Session::get('greenStatus') }}");
+                @endif
+            </script>
+            <script>
+                @if(Session::has('redStatus'))
+                            toastr.error("{{ Session::get('redStatus') }}");
+                @endif
+            </script>
+            <script>
+                @if(Session::has('yellowStatus'))
+                            toastr.warning("{{ Session::get('yellowStatus') }}");
+                @endif
+            </script>
+            <script>
+                @if($errors->all())
+                        toastr.error("Error Occared ! Please Check The Form Requirements 😢");
+                        @foreach ($errors->all() as $item)
+                            toastr.warning("{{ $item }}");
+                        @endforeach
+                @endif
+            </script>
     @yield('js')
 </body>
 

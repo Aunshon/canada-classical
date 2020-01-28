@@ -10,6 +10,7 @@ use App\Partner;
 use App\Faq;
 use App\SubFaq;
 use App\Contact;
+use App\ContactForm;
 Route::get('/', function () {
     $photo = Logo::where('status',1)->first('photo');
     if (!$photo) {
@@ -28,8 +29,9 @@ Route::get('/', function () {
     $Faq = Faq::all();
     $SubFaq = SubFaq::all();
     $Contact = Contact::all();
+    $ContactForm = ContactForm::all();
     // echo $photo;
-    return view('welcome',compact('photo', 'allSocial', 'allBaner', 'allAbout', 'ExperienceCanada', 'ExperienceTheWorld','Partner','Faq','SubFaq', 'Contact'));
+    return view('welcome',compact('photo', 'allSocial', 'allBaner', 'allAbout', 'ExperienceCanada', 'ExperienceTheWorld','Partner','Faq','SubFaq', 'Contact', 'ContactForm'));
 });
 
 Auth::routes();
@@ -81,3 +83,4 @@ Route::post('/saveContact', 'DashboardController@saveContact')->name('saveContac
 
 Route::get('/contactForm', 'DashboardController@contactForm')->name('contactForm');
 Route::post('/saveContactForm', 'DashboardController@saveContactForm')->name('saveContactForm');
+Route::get('/deletecontactForm/{id}', 'DashboardController@deletecontactForm')->name('deletecontactForm');

@@ -136,6 +136,7 @@
                                     <li><a href=" {{route('partner')}} ">partner</a></li>
                                     <li><a href=" {{route('faq')}} ">FAQ</a></li>
                                     <li><a href=" {{route('contact')}} ">Contact</a></li>
+                                    <li><a href=" {{route('contactForm')}} ">Contact Messages</a></li>
                                 </ul>
                             </li>
 

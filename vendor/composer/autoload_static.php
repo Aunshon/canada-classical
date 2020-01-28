@@ -439,6 +439,7 @@ class ComposerStaticInit252b28f9f754835ba500e22ab92b6e67
         'App\\BannerVideo' => __DIR__ . '/../..' . '/app/BannerVideo.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Contact' => __DIR__ . '/../..' . '/app/Contact.php',
+        'App\\ContactForm' => __DIR__ . '/../..' . '/app/ContactForm.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\ExperienceCanada' => __DIR__ . '/../..' . '/app/ExperienceCanada.php',
         'App\\ExperienceTheWorld' => __DIR__ . '/../..' . '/app/ExperienceTheWorld.php',
