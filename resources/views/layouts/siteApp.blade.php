@@ -87,7 +87,8 @@
                     </ul>
                     <div class="button">
                         <a class="apply" href="#">apply now</a>
-                            @guest
+                        <a class="login" href="#">log in</a>
+                            {{-- @guest
                             <a class="login" href="{{ route('login') }}">log in</a>
                             @else
 
@@ -100,7 +101,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                            @endguest
+                            @endguest --}}
                         {{-- <a class="login" href="#">log in</a> --}}
                     </div>
                 </div>
